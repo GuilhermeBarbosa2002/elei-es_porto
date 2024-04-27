@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleições FC Porto</title>
+    <style>
+
+        #photo_container {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center; /* Alinhar o texto centralmente */
+            margin-top: 20px; /* Adicionar margem superior para espaçamento */
+        }
+        
+        /* Estilos para o banner */
+        #banner {
+            background-color: #00529b; /* Azul Porto */
+            padding: 10px;
+            text-align: center;
+        }
+
+        #banner img {
+            height: 80px; /* Tamanho do símbolo */
+            width: auto;
+        }
+
+        /* Estilos para as opções */
+        .option-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: center; /* Centraliza horizontalmente */
+        }
+
+        .option {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .option.disabled {
+            pointer-events: none;
+        }
+
+        .cross {
+            font-size: 24px;
+            color: red;
+        }
+
+        /* Estilos para as fotos */
+        .candidate-photo {
+            height: 60px; /* Altura da foto */
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/FC_Porto.svg/1200px-FC_Porto.svg.png" alt="Símbolo do Porto">
+    </div>
+    <h1 class="option-container">Eleições FC Porto</h1>
+    <p class="option-container">Escolha o seu candidato:</p>
+
+    <div class="option-container" id="pinto_da_costa_container" onclick="showPhoto('https://www.tafixe.com/wp-content/uploads/2024/02/macaco-tafixe-860x452.jpg')">
+        <div class="option" id="pinto_da_costa">Pinto da Costa</div>
+        <img src="https://images.impresa.pt/olimpia/2023-11-22-pinto-da-costa-79b6ae01-1/original" alt="Foto Pinto da Costa" class="candidate-photo">
+        <span class="cross">✗</span>
+    </div>
+
+    <div class="option-container" id="andre_vilas_boas_container">
+        <div class="option" id="andre_vilas_boas" onmouseover="changePosition('andre_vilas_boas_container')">André Villas-Boas</div>
+        <img src="https://www.qspsummit.pt/uploads/catalogo/imagens/big_catalogo_1679419573_1688.jpg" alt="Foto André Vilas Boas" class="candidate-photo">
+        <span class="cross">✗</span>
+    </div>
+
+    <div class="option-container" id="nuno_lobo_container">
+        <div class="option" id="nuno_lobo" onmouseover="changePosition('nuno_lobo_container')">Nuno Lobo</div>
+        <img src="https://cdn.record.pt/images/2024-04/img_476x268$2024_04_24_23_17_36_2244904.jpg" alt="Foto Nuno Lobo" class="candidate-photo">
+        <span class="cross">✗</span>
+    </div>
+
+    <div id="photo_container" style="display: none;">
+        <div id="selected_candidate"></div>
+        <h1>OBRIGADO PELO SEU VOTO DE CONFIANÇA, A CONTA BANCÁRIA DO PINTO DA COSTA AGRADECE</h1>
+        <img id="selected_photo">
+    </div>
+
+    <script>
+        function changePosition(containerId) {
+            var container = document.getElementById(containerId);
+            container.style.display = "none";
+        }
+
+        function showPhoto(photoUrl) {
+            var photoContainer = document.getElementById("photo_container");
+            var selectedCandidate = document.getElementById("selected_candidate");
+            var selectedPhoto = document.getElementById("selected_photo");
+
+            selectedPhoto.src = "https://cdn.cmjornal.pt/images/2016-11/img_1280x720$2016_11_10_20_54_00_575277.jpg";
+            photoContainer.style.display = "block";
+        }
+    </script>
+</body>
+</html>
